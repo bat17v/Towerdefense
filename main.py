@@ -1,6 +1,7 @@
 from utils import *
 from enemy import *
 from tower import *
+from menu import *
 
 
 pygame.init()

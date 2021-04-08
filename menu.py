@@ -12,8 +12,22 @@ class Button:
         screen.blit(self.img, self.pos)
 
     def action(self):
-        pass
+        pass  # TODO: реализовать создание действия кнопки
 
     def update(self, x: int, y: int):
         if self.rect.collidepoint(x, y):
             self.action()
+
+
+class Panel:
+    def __init__(self, x: int, y: int, img: pygame.SurfaceType, buttons=None):
+        self.pos = x, y
+        self.rect = pygame.Rect(x, y, *img.get_size())
+        self.img = img
+        # TODO: добавить self.buttons
+
+    def draw(self, screen: pygame.SurfaceType):
+        pass  # TODO: создать отрисовку
+
+    def update(self):
+        pass  # TODO: добавить обновление обеъкта
