@@ -5,7 +5,7 @@ from menu import *
 
 
 pygame.init()
-screen = pygame.display.set_mode((1000, 588))
+screen = pygame.display.set_mode((1000, 588))  # TODO: увеличить высоту для панели
 screens = [
     load_img('f/screens/screen0.png', size=(1000, 588))
 ]
@@ -14,6 +14,7 @@ world = [
     StoneTower(200, 200, stone_imgs['stone'], tower_imgs['stone'])
 ]
 t = 0
+# TODO: нужно создать кнопки и панель соответствующих классов
 while True:
     screen.blit(screens[0], (0, 0))
     pygame.time.delay(10)

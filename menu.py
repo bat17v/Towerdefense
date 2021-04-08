@@ -20,14 +20,16 @@ class Button:
 
 
 class Panel:
-    def __init__(self, x: int, y: int, img: pygame.SurfaceType, buttons=None):
+    def __init__(self, x: int, y: int, img: pygame.SurfaceType, buttons: list = None):
         self.pos = x, y
         self.rect = pygame.Rect(x, y, *img.get_size())
         self.img = img
+        self.buttons = buttons
         # TODO: добавить self.buttons
 
     def draw(self, screen: pygame.SurfaceType):
-        pass  # TODO: создать отрисовку
+        screen.blit(self.img, self.pos)
+        # TODO: создать отрисовку КНОПОК
 
     def update(self):
         pass  # TODO: добавить обновление обеъкта
