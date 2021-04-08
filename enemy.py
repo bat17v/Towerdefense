@@ -1,7 +1,7 @@
 from utils import *
 import pygame
 import math
-pygame.K_a
+
 
 enemy_imgs = {
     'scorpion': {
