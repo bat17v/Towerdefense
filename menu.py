@@ -1,4 +1,14 @@
 import pygame
+from utils import *
+
+
+menu_imgs = {
+    'buttons': {
+        'touch': [load_img(f'ico_{i + 1}.png') for i in range(25)],
+        'cost': load_img('ico_cost.png'),
+    },
+    'panel': pygame.image.load('panel.png'),
+}
 
 
 class Button:
@@ -25,11 +35,12 @@ class Panel:
         self.rect = pygame.Rect(x, y, *img.get_size())
         self.img = img
         self.buttons = buttons
-        # TODO: добавить self.buttons
 
     def draw(self, screen: pygame.SurfaceType):
         screen.blit(self.img, self.pos)
-        # TODO: создать отрисовку КНОПОК
+        for button in self.buttons:
+            button.draw()
 
-    def update(self):
-        pass  # TODO: добавить обновление обеъкта
+    def update(self, x: int, y: int):
+        for button in self.buttons:
+            button.update(x, y)
