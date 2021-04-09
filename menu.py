@@ -4,10 +4,10 @@ from utils import *
 
 menu_imgs = {
     'buttons': {
-        'touch': [load_img(f'ico_{i + 1}.png') for i in range(25)],
-        'cost': load_img('ico_cost.png'),
+        'touch': [load_img(f'f/icons/ico_{i + 1}.png') for i in range(25)],
+        'cost': load_img('f/icons/ico_cost.png'),
     },
-    'panel': pygame.image.load('panel.png'),
+    'panel': load_img('f/icons/panel.png'),
 }
 
 
