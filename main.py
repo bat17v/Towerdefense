@@ -14,7 +14,7 @@ world = [
     StoneTower(200, 200, stone_imgs['stone'], tower_imgs['stone'])
 ]
 t = 0
-
+# ggdgdgdh
 buttons = [
     # TODO: нужно создать кнопки и панель соответствующих классов
 ]
