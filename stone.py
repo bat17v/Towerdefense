@@ -2,7 +2,7 @@ from utils import *
 import pygame
 
 stone_imgs = {
-    'stone': [load_img(f'f/towers/stones/{i}.png') for i in range(40, 45)]
+    'stone': [load_img(f'f/towers/stones/{i}.png', size=(0.8, 0.8)) for i in range(40, 45)]
 }
 
 

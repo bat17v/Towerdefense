@@ -3,12 +3,13 @@ from enemy import *
 from tower import *
 from menu import *
 
+screens = [
+    load_img('f/screens/screen0.png', size=(0.6, 0.6))
+]
 
 pygame.init()
-screen = pygame.display.set_mode((1000, 588 + int(192 * 0.50556)))  # TODO: увеличить высоту для панели
-screens = [
-    load_img('f/screens/screen0.png', size=(1000, 588))
-]
+screen = pygame.display.set_mode(screens[0].get_size())  # TODO: увеличить высоту для панели
+
 world = [
     Enemy(open_path('f/levels/paths/level_1.2.txt'), 'run', enemy_imgs['scorpion']),
     StoneTower(200, 200, stone_imgs['stone'], tower_imgs['stone'])
@@ -18,7 +19,8 @@ t = 0
 buttons = [
     # TODO: нужно создать кнопки и панель соответствующих классов
 ]
-p = Panel(0, 588, menu_imgs['panel'])
+
+p = Panel(0, 588, menu_imgs['panel'], width=screens[0].get_width())
 while True:
     screen.blit(screens[0], (0, 0))
     pygame.time.delay(10)

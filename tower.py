@@ -5,9 +5,9 @@ import pygame
 
 tower_imgs = {
     'stone': [
-        [load_img(f'f/towers/stone_towers/{i}.png') for i in [1, 3, 2]],
-        [load_img(f'f/towers/stone_towers/{i}.png') for i in [1, 6, 2]],
-        [load_img(f'f/towers/stone_towers/{i}.png') for i in [4, 7, 5]]
+        [load_img(f'f/towers/stone_towers/{i}.png', size=(0.8, 0.8)) for i in [1, 3, 2]],
+        [load_img(f'f/towers/stone_towers/{i}.png', size=(0.8, 0.8)) for i in [1, 6, 2]],
+        [load_img(f'f/towers/stone_towers/{i}.png', size=(0.8, 0.8)) for i in [4, 7, 5]]
     ]
 }
 
