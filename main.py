@@ -5,7 +5,7 @@ from menu import *
 
 
 pygame.init()
-screen = pygame.display.set_mode((1000, 588 + 192))  # TODO: увеличить высоту для панели
+screen = pygame.display.set_mode((1000, 588 + int(192 * 0.50556)))  # TODO: увеличить высоту для панели
 screens = [
     load_img('f/screens/screen0.png', size=(1000, 588))
 ]
@@ -18,7 +18,7 @@ t = 0
 buttons = [
     # TODO: нужно создать кнопки и панель соответствующих классов
 ]
-
+p = Panel(0, 588, menu_imgs['panel'])
 while True:
     screen.blit(screens[0], (0, 0))
     pygame.time.delay(10)
@@ -33,5 +33,7 @@ while True:
     for elem in world:
         elem.update()
         elem.draw(screen)
+
+    p.draw(screen)
 
     pygame.display.flip()
