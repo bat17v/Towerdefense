@@ -1,8 +1,9 @@
 import pygame
+import enemy
 
 pygame.init()
 screen = pygame.display.set_mode((1000, 588))
-img = pygame.image.load('f/enemies/scorpion/1_enemies_1_run_001.png')
+img = enemy.enemy_imgs['scorpion']['run'][0]
 
 screens = [
     pygame.transform.scale(pygame.image.load('f/screens/screen0.png'), (1000, 588))

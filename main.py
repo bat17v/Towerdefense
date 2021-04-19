@@ -16,7 +16,7 @@ screens = [
     load_img('f/screens/screen0.png', size=(1000, 588))
 ]
 world = [
-    Enemy(open_path('f/levels/paths/level_1.2.txt'), 'run', enemy_imgs['scorpion']),
+    Enemy(open_path('f/levels/paths/level_1.1.txt', 'wave.v.1'), 'run', enemy_imgs['scorpion']),
     StoneTower(200, 200, stone_imgs['stone'], tower_imgs['stone'])
 ]
 t = 0

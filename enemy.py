@@ -13,30 +13,40 @@ enemy_imgs = {
 }
 
 
-def open_path(file: str):
-    r = []
+def open_path(file: str, code: str = 'all'):  # FIXME
+    r = {'path': [], 'characters': []}
     f_way = open_file(file)
-    label = ''
+    label = 'path' if code == 'one.v.1' else ''
     for line in f_way:
-
-        r.append(tuple(map(int, line.split())))
+        if line[0] == '!':
+            label = line[1:-1]
+        else:
+            try:
+                r[label].append(tuple(map(int, line.split())))
+            except:
+                r[label].append(tuple(line.split()))
     return r
 
 
 class Wave:
-    def __init__(self, path: str, delay: int, start: int = 0):
-        p = open_path(path)
+    def __init__(self, path: str, delay: int, code: str = 'wave.v.1', start: int = 0):
+        p = open_path(path, code)
+
         self.path = p['path']
         self.characters = p['characters']
         self.character_num = 0
-        self.cheracter_i = 0
+        self.character_i = 0
 
         self.start = start
         self.delay = delay
         self.adding = False
+        self.stop = False
         self.t = 0
 
     def update(self, output: list):
+        if self.stop:
+            return
+
         self.t += 1
 
         if not self.adding:
@@ -46,7 +56,17 @@ class Wave:
             return
 
         if self.t % self.delay == 0:
-            output.append(Enemy(self.path, self.characters[self.c]))
+            i = self.character_i
+            settings = self.characters[i]
+            output.append(Enemy(self.path, settings[2], enemy_imgs[settings[1]]))
+            self.character_num += 1
+
+            if self.character_num == settings[0]:
+                self.character_num = 0
+                self.character_i += 1
+                if i + 1 >= len(self.characters):
+                    self.stop = True
+                    self.adding = False
 
 
 class Enemy:
@@ -55,9 +75,9 @@ class Enemy:
         self.img_group = start_group
         self.imgs_groups = imgs_groups
 
-        self.path = path
+        self.path = path['path']
         self.t = 0
-        self.pos = path[0]
+        self.pos = path['path'][0]
 
         self.rect = imgs_groups[start_group][0].get_rect()
 
